@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+
+$background_color: #fccf33;
+$color_button_hover: #e6a303;
+$text_color: #979797;
+$white: #fff;
+$footer_color: #231f20;
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    // scroll-snap-margin-top: 8.5rem;
+    scroll-margin-top:  8.5rem;
+    
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+    &::-webkit-scrollbar-track {
+        background: $white;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $color_button_hover;
+        border-radius: 5rem;
+    }
+}
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.contact_container{
+    width: 100%;
+    height: 700px;
+}
+
+// FOOTER CSS STARTS HERE
+.footer {   
+    position: relative;
+
+    .footer_infor_top{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        top: -80px;
+        left: 35rem;
+        right: 35rem;
+        background-color: $background_color;
+        height: 16.5rem;
+        text-transform: uppercase;
+        border-radius: 0.5rem;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            height: 7rem;
+            border-right: 0.5px solid rgba(202, 194, 194, 0.425);
+            padding: 0 2rem;
+            width: 100%;
+
+            i{
+                margin-bottom: 10px;
+                font-size: 2.5rem;
+            }
+            p{
+                font-size: 15px;
+                font-weight: 500;
+                color: $footer_color;
+            }
+            a{
+                color: $footer_color;
+                font-size: 15px;
+                font-weight: 500;
+                transition: 0.3s linear;
+
+                &:hover{
+                    color: $white;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .footer_time{
+            border: none;
+        }
+    }
+    .footer_container {
+        background-color: $footer_color;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 130px 0 50px 0;
+        
+
+        .footer_column {
+            display: flex;
+            flex-direction: column;
+            margin: 0px 60px;
+
+            .footer_logo{
+                color: $white;
+                font-weight: 500;
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+            .footer_social_icon{
+                display: flex;
+                flex-direction: row;
+
+                div{
+                    width: 4.5rem;
+                    height: 4.5rem;
+                    background: #333;
+                    margin-left: 0.5rem;
+                    cursor: pointer;
+                    text-align: center;  
+                    border-radius: 0.5rem;
+                    line-height: 4.5rem;
+
+                    a{
+                        font-size: 2rem;
+                        color: $white;
+                    }
+                    &:hover{
+                        background-color: $background_color;
+                        transition: 0.3s linear;
+                        
+                        a{
+                            color: $footer_color;
+                        }
+                    }
+                }
+                
+            }
+            h3 {
+                color: $white;
+                margin-bottom: 10px;
+                font-weight: 500;
+                font-size: 2rem;
+            }
+            a {
+                color: $text_color;
+                margin-bottom: 2px;
+                font-size: 1.5rem;
+
+                &:hover{
+                    color: $white;
+                    transition: 0.3s linear;
+
+                }
+            }
+        }
+    }
+    .footer_copyright{
+        background-color: $footer_color;
+        border-top: 1px solid #333;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        p{
+            color: $text_color;
+            margin-right: 5px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid $footer_color;
+        }
+        a{
+            color: $background_color;
+            padding: 0 5px;
+            font-size: 1.3rem;
+            border-left: 1px solid $text_color;
+
+            &::after{
+                display:block;
+                content: '';
+                border-bottom: solid 1px $background_color;  
+                transform: scaleX(0);  
+                transition: transform 0.3s ease-in-out;
+            }
+            &:hover::after{
+                transform: scaleX(1);
+            }
+            &::after{
+                transform-origin:  50% 50%; 
+            }
+        }
+    }
+}
+// FOOTER CSS ENDS HERE
+
+
+// CLICK_SCROLL_TOP STARTS HERE
+.scrollTop{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    z-index: 10000;
+    font-size: 15px;
+    padding: 12px;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    visibility: hidden;
+    transition: 0.3s linear;
+
+    
+    &:hover{
+        background-color: $background_color;
+        color: $footer_color;
+    }
+    &.active{
+        visibility: visible;
+        opacity: 1;
+    }
+    i{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+}
+// CLICK_SCROLL_TOP ENDS HERE

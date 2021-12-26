@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-margin-top: 8.5rem;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #e6a303;
+  border-radius: 5rem;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+.contact_container {
+  width: 100%;
+  height: 700px;
+}
+
+.footer {
+  position: relative;
+}
+
+.footer .footer_infor_top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  position: absolute;
+  top: -80px;
+  left: 35rem;
+  right: 35rem;
+  background-color: #fccf33;
+  height: 16.5rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+}
+
+.footer .footer_infor_top div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 7rem;
+  border-right: 0.5px solid rgba(202, 194, 194, 0.425);
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.footer .footer_infor_top div i {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.footer .footer_infor_top div p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #231f20;
+}
+
+.footer .footer_infor_top div a {
+  color: #231f20;
+  font-size: 15px;
+  font-weight: 500;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.footer .footer_infor_top div a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer .footer_infor_top .footer_time {
+  border: none;
+}
+
+.footer .footer_container {
+  background-color: #231f20;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 130px 0 50px 0;
+}
+
+.footer .footer_container .footer_column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0px 60px;
+}
+
+.footer .footer_container .footer_column .footer_logo {
+  color: #fff;
+  font-weight: 500;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.footer .footer_container .footer_column .footer_social_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.footer .footer_container .footer_column .footer_social_icon div {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: #333;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0.5rem;
+  line-height: 4.5rem;
+}
+
+.footer .footer_container .footer_column .footer_social_icon div a {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.footer .footer_container .footer_column .footer_social_icon div:hover {
+  background-color: #fccf33;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.footer .footer_container .footer_column .footer_social_icon div:hover a {
+  color: #231f20;
+}
+
+.footer .footer_container .footer_column h3 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.footer .footer_container .footer_column a {
+  color: #979797;
+  margin-bottom: 2px;
+  font-size: 1.5rem;
+}
+
+.footer .footer_container .footer_column a:hover {
+  color: #fff;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.footer .footer_copyright {
+  background-color: #231f20;
+  border-top: 1px solid #333;
+  width: 100%;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.footer .footer_copyright p {
+  color: #979797;
+  margin-right: 5px;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #231f20;
+}
+
+.footer .footer_copyright a {
+  color: #fccf33;
+  padding: 0 5px;
+  font-size: 1.3rem;
+  border-left: 1px solid #979797;
+}
+
+.footer .footer_copyright a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px #fccf33;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.footer .footer_copyright a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.footer .footer_copyright a::after {
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.scrollTop {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  z-index: 10000;
+  font-size: 15px;
+  padding: 12px;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  visibility: hidden;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.scrollTop:hover {
+  background-color: #fccf33;
+  color: #231f20;
+}
+
+.scrollTop.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.scrollTop i {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=style.css.map */
