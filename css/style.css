@@ -43,7 +43,7 @@ html::-webkit-scrollbar-thumb {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 0.5px solid #9797977e;
+  border-bottom: 0.5px solid #cec6c67e;
   background-color: transparent;
   z-index: 2;
   position: absolute;
@@ -86,7 +86,7 @@ html::-webkit-scrollbar-thumb {
           align-items: center;
   font-weight: 500;
   padding: 15px 20px;
-  border-right: 0.5px solid #9797977e;
+  border-right: 0.5px solid #cec6c67e;
   color: #fff;
 }
 
@@ -105,6 +105,34 @@ html::-webkit-scrollbar-thumb {
   font-size: 1.3rem;
   margin-right: 5px;
   color: #fff;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_phone_icon a:hover {
+  color: #fccf33;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_phone_icon a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px #fccf33;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_phone_icon a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_phone_icon a::after {
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_email_icon {
@@ -130,6 +158,34 @@ html::-webkit-scrollbar-thumb {
 .navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_email_icon a {
   font-size: 1.3rem;
   color: #fff;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_email_icon a:hover {
+  color: #fccf33;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_email_icon a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px #fccf33;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_email_icon a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_left_side .navbar_email_icon a::after {
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side {
@@ -162,6 +218,34 @@ html::-webkit-scrollbar-thumb {
 
 .navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_social_media_icon div a {
   color: #fff;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_social_media_icon div a:hover {
+  color: #fccf33;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_social_media_icon div a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px #fccf33;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_social_media_icon div a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_social_media_icon div a::after {
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
 }
 
 .navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_search_login {
@@ -180,10 +264,16 @@ html::-webkit-scrollbar-thumb {
   font-weight: 500;
   padding: 15px 20px;
   font-size: 1.3rem;
-  border-right: 0.5px solid #9797977e;
-  border-left: 0.5px solid #9797977e;
+  border-right: 0.5px solid #cec6c67e;
+  border-left: 0.5px solid #cec6c67e;
   cursor: pointer;
   color: #fff;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_search_login div:hover {
+  background-color: #fccf33;
 }
 
 .navbar_container .navbar_main .navbar_top .navbar_row .navbar_column .navbar_social_right_side .navbar_search_login .navbar_search {
@@ -222,7 +312,7 @@ html::-webkit-scrollbar-thumb {
 .navbar_container .navbar_main .navbar_bottom .navbar_logo_left {
   color: #fff;
   font-weight: 500;
-  font-size: 35px;
+  font-size: 4.5rem;
   text-transform: capitalize;
 }
 
@@ -232,6 +322,9 @@ html::-webkit-scrollbar-thumb {
   display: flex;
   list-style-type: none;
   cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .navbar_container .navbar_main .navbar_bottom .navbar_menu_right li {
@@ -239,6 +332,53 @@ html::-webkit-scrollbar-thumb {
   margin-right: 15px;
   font-weight: 600;
   color: #fff;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.navbar_container .navbar_main .navbar_bottom .navbar_menu_right li::after {
+  display: block;
+  content: '';
+  border-bottom: solid 2px #fccf33;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.navbar_container .navbar_main .navbar_bottom .navbar_menu_right li:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.navbar_container .navbar_main .navbar_bottom .navbar_menu_right li::after {
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.navbar_container .navbar_main .fix-nav {
+  width: 100%;
+  height: 7rem;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 102;
+  background-color: rgba(255, 255, 255, 0.596);
+}
+
+.navbar_container .navbar_main .fix-nav .navbar_row .navbar_logo_left {
+  color: #000;
+  -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
+}
+
+.navbar_container .navbar_main .fix-nav .navbar_row .navbar_menu_right li {
+  -webkit-transition: 0.5s linear;
+  transition: 0.5s linear;
+  color: #000;
 }
 
 .home_page_banner {
@@ -257,6 +397,7 @@ html::-webkit-scrollbar-thumb {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-height: 100vh;
 }
 
 .home_page_banner .content {
@@ -268,7 +409,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .home_page_banner .content span {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #fccf33;
 }
 
@@ -454,8 +595,8 @@ html::-webkit-scrollbar-thumb {
   text-align: center;
   position: absolute;
   top: -80px;
-  left: 37rem;
-  right: 37rem;
+  left: 30rem;
+  right: 30rem;
   background-color: #fccf33;
   height: 16.5rem;
   text-transform: uppercase;

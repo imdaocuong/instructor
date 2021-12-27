@@ -31,6 +31,7 @@
 
     <?php include('./admin/partials/footer.php'); ?>
     <?php include('./admin/partials/click_scroll_top.php'); ?>
-
+    <script type="text/javascript" src="../instructor/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../instructor/js/main.js"></script>
 </body>
 </html>

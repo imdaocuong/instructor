@@ -72,7 +72,7 @@
                 <!-- NAVBAR TOP ENDS -->
 
                 <!-- NAVBAR BOTTOM STARTS -->
-                <div class="navbar_bottom">
+                <div class="navbar_bottom" id="navbar">
                     <div class="navbar_row">
                         <div class="navbar_column">
                             <div class="navbar_logo_left">
@@ -105,7 +105,8 @@
             <!-- home section ends -->
         
     </header>
-   
 </div>
+<script type="text/javascript" src="../../js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../js/main.js"></script>
 </body>
 </html>
