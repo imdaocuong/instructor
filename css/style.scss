@@ -5,6 +5,8 @@ $color_button_hover: #e6a303;
 $text_color: #979797;
 $white: #fff;
 $footer_color: #231f20;
+$black: #130f40;
+$light_bg: #f7f7f7;
 
 html {
     font-size: 62.5%;
@@ -32,14 +34,298 @@ html {
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    outline: none;
 }
 
-.contact_container{
-    width: 100%;
-    height: 700px;
+@mixin grid($val){
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 1.5rem;
 }
+
 // NAVBAR CSS STARTS HERE
+.navbar_container{
+    
+    .navbar_main{
+        position: relative;
 
+        .navbar_top{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 0.5px solid #9797977e;
+            background-color: transparent;
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            right: 0;
+
+            .navbar_row{
+                width: 120rem;
+
+                .navbar_column{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .navbar_social_left_side{
+                        display: flex;
+            
+                        .navbar_phone_icon{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 500;
+                            padding: 15px 20px;
+                            border-right: 0.5px solid #9797977e;
+                            color: $white;
+        
+                            i{
+                                font-size: 1.3rem;
+                                margin-right: 5px;
+                            }
+                            p{
+                                font-size: 1.3rem;
+                                text-transform: uppercase;
+                                margin-right: 5px;
+                            }
+                            a{
+                                font-size: 1.3rem;
+                                margin-right: 5px;
+                                color: $white;
+                            }
+                        }
+                        .navbar_email_icon{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-weight: 500;
+                            padding: 15px 20px;
+        
+                            i{
+                                font-size: 1.3rem;
+                                margin-right: 5px;
+                                color: $white;
+                            }
+                            a{
+                                font-size: 1.3rem;
+                                color: $white;
+                            }
+                        }
+                    }
+                    .navbar_social_right_side{
+                        display: flex;
+                        
+                        .navbar_social_media_icon{
+                            display: flex;
+                            margin-right: 1.3rem;
+                            div{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-weight: 500;
+                                padding: 15px 10px;
+                                font-size: 1.3rem;
+        
+                                a{
+                                    color: $white;
+                                }
+                            }
+                        }
+                        .navbar_search_login{
+                            display: flex;
+                            
+                            div{
+                                justify-content: center;
+                                align-items: center;
+                                font-weight: 500;
+                                padding: 15px 20px;
+                                font-size: 1.3rem;
+                                border-right: 0.5px solid #9797977e;
+                                border-left: 0.5px solid #9797977e;
+                                cursor: pointer;
+                                color: $white;
+                            }
+                            .navbar_search{
+                                border-right: none;
+                            }
+                        
+                        }
+                    }
+                }
+                
+            }
+        }
+        .navbar_bottom{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: absolute;
+            z-index: 2;
+            top: 75px;
+            left: 0rem;
+            right: 0rem;
+
+            .navbar_row{
+                width: 116rem;
+
+                .navbar_column{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            .navbar_logo_left{
+                color: $white;
+                font-weight: 500;
+                font-size: 35px;
+                text-transform: capitalize;
+            }
+            .navbar_menu_right{
+                display: flex;
+                list-style-type: none;
+                cursor: pointer;
+
+                li {
+                    font-size: 17px;
+                    margin-right: 15px;
+                    font-weight: 600;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+.home_page_banner{
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+
+    .content{
+        flex: 1 1 41rem;
+        position: absolute;
+        z-index: 3;
+        
+        span{
+            font-size: 2rem;
+            color: $background_color;
+        }
+        h3{
+            font-size: 6rem;
+            color: $white;
+            padding-top: 1rem;
+            font-weight: 600;
+        }
+        p{
+            font-size: 2.5rem;
+            color: $light_bg;
+            line-height: 2;
+            padding: 1rem 0;
+        }
+        .home_page_click{
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            transition: 0.3s linear;
+            width: 16rem;
+
+            .icon_click{
+                width: 40px;
+                height: 40px;
+                background-color: $background_color;
+                text-align: center;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                border-radius: 50%;
+                margin-right: 10px;
+                
+                i{
+                    font-size: 2.5rem;
+                    color: $white;
+                }
+            }
+            a{
+                font-size: 1.5rem;
+                color: $white;
+                -webkit-text-stroke: 1px $white;
+                position: relative;
+                transition: linear 0.3s;
+        
+                &::before{
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0;
+                    height: 100%;
+                    -webkit-text-stroke: 1px $background_color;
+                    overflow: hidden;
+                    animation: animate 4s linear infinite;
+                }
+            }
+            &:hover{
+                .icon_click{
+                    background-color: $color_button_hover;
+
+                    i{
+                        color: $footer_color;
+                    }
+                }
+            }
+        }
+    }
+    .image{
+        video{
+            object-fit: cover;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+}
+@keyframes animate{
+    0%{
+        width: 0;
+    }
+    10%{
+        width: 0%;
+    }
+    20%{
+        width: 0%;
+    }
+    30%{
+        width: 100%;
+    }
+    40%{
+        width: 100%;
+    }
+    50%{
+        width: 100%;
+    }
+    60%{
+        width: 100%;
+    }
+    70%{
+        width: 100%;
+    }
+    80%{
+        width: 0;
+    }
+    90%{
+        width: 0;
+    }
+    100%{
+        width: 0;
+    }
+}
 // NAVBAR CSS ENDS HERE
 
 
@@ -54,8 +340,8 @@ html {
         text-align: center;
         position: absolute;
         top: -80px;
-        left: 30rem;
-        right: 30rem;
+        left: 37rem;
+        right: 37rem;
         background-color: $background_color;
         height: 16.5rem;
         text-transform: uppercase;
