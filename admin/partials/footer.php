@@ -14,8 +14,6 @@
 
 </head>
 <body>
-    <div class="abc">
-    </div>
     <!-- footer start  -->
     <div class="footer">
         <div class="footer_infor_top">
