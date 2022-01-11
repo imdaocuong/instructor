@@ -280,7 +280,7 @@ html {
         // transition: 0.1s linear;
         // border-bottom: 0.5px solid #cec6c67e;
         // background-color: #231f2094;
-        background-color: rgba(255, 255, 255, 0.596);
+        background-color: rgba(255, 255, 255, 0.815);
 
         .navbar_row{
             .navbar_logo_left{
@@ -384,6 +384,7 @@ html {
                             -webkit-text-stroke: 1px $background_color;
                             overflow: hidden;
                             animation: animate 4s linear infinite;
+                            transition: 0.3s linear;
                         }
                     }
                     &:hover{
@@ -426,14 +427,14 @@ html {
     70%{
         width: 100%;
     }
-    80%{
+    85%{
         width: 0;
     }
     90%{
         width: 0;
     }
     100%{
-        width: 0;
+        width: 0%;
     }
 }
 // NAVBAR CSS ENDS HERE

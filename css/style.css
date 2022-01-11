@@ -366,7 +366,7 @@ html::-webkit-scrollbar-thumb {
   left: 0px;
   right: 0px;
   z-index: 102;
-  background-color: rgba(255, 255, 255, 0.596);
+  background-color: rgba(255, 255, 255, 0.815);
 }
 
 .navbar_main .fix-nav .navbar_row .navbar_logo_left {
@@ -501,6 +501,8 @@ html::-webkit-scrollbar-thumb {
   overflow: hidden;
   -webkit-animation: animate 4s linear infinite;
           animation: animate 4s linear infinite;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
 }
 
 .home_page_banner .banner_row .banner_column .content .home_page_click:hover .icon_click {
@@ -536,14 +538,14 @@ html::-webkit-scrollbar-thumb {
   70% {
     width: 100%;
   }
-  80% {
+  85% {
     width: 0;
   }
   90% {
     width: 0;
   }
   100% {
-    width: 0;
+    width: 0%;
   }
 }
 
@@ -572,14 +574,14 @@ html::-webkit-scrollbar-thumb {
   70% {
     width: 100%;
   }
-  80% {
+  85% {
     width: 0;
   }
   90% {
     width: 0;
   }
   100% {
-    width: 0;
+    width: 0%;
   }
 }
 

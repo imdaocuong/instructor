@@ -1,0 +1,105 @@
+Phát triển dự án Website bán khoá học:
+1) Phân tích dự án
+    - Frontend:
+        - Trang chủ
+        - Trang danh sách sản phẩm
+        - Trang chi tiết sản phẩm
+        - Trang giỏ hàng
+        - Trang checkout
+        - Trang liên hệ
+        - Login
+        ...
+    - Admin
+        - Tài khoản người dùng:
+            + Quản lý role (admin, user, teacher)
+            + Quản lý người dùng: admin/user/teacher
+            + Đăng ký tài khoản
+            + Đăng nhập
+        - Quản lý danh mục sản phẩm
+        - Quản lý sản phẩm
+        - Quản lý đơn hàng
+            + Hiển thị danh sách các đơn hàng -> hiển thị giảm dần theo thời gian (quản lý trạng thái đơn hàng)
+        - Quản lý phản hồi
+        - 
+2) Thiết kế database
+    a> Bảng role
+        - id: int -> Khoá chính tự tăng
+        - name: string (varchar) - 20 ký tự
+    b> Bảng user
+        - id: int -> Khoá chính tự tăng
+        - fullname: string (varchar) - 50 ký tự
+        - email: string (varchar) - 150 ký tự
+        - phone_number: string (varchar) -> 20 ký tự
+        - address: string -> 200 ký tự
+        - password: string -> md5 -> 32 ký tự(độ dài chính xác)
+        - create_at: datetime -> tạo bản ghi
+        - update_at: datetime -> sửa bản ghi
+        - role_id: int -> foreign key -> role (id)
+    c> Bảng danh mục -> category
+        - id: int -> Khoá chính tự tăng
+        - name: string -> 100 ký tự
+    d> Bảng sản phẩm -> Product
+        - id: int -> Khoá chính tự tăng
+        - category_id: int -> foreign key -> category(id)
+        - title: string -> 350 ký tự
+        - price: int 
+        - discount_price: int
+        - thumbnail: string (varchar) -> 500 ký tự
+        - description: longtext
+        - create_at: datetime -> tạo bản ghi
+        - update_at: datetime -> sửa bản ghi
+    e> Bảng quản lý gallery
+        - id: int -> Khoá chính tự tăng
+        - product_id -> int -> foreign key -> Product (id)
+        - thumbnail: string (varchar) -> 5-- ký tự
+    g> Bảng quản lý phản hồi -> Feedback
+        - id: int -> khoá chính tự tăng
+        - firstname -> string (varchar) -> 50 ký tự
+        - lastname -> string (varchar) -> 50 ký tự
+        - email: string (varchar) -> 150 ký tự
+        - phone_number: string -> 20 ký tự
+        - subject_name: string -> 200 ký tự
+        - note: string (varchar) -> độ dài tối đa -> 500 ký tự
+    h> Bảng quản lý đơn hàng
+        - id: int -> khoá chính tự tăng
+        - fullname: string
+        - email: string (varchar) - 150 ký tự
+        - phone_number: string (varchar) -> 20 ký tự
+        - address: string -> 200 ký tự
+        - note: string (varchar) -> độ dài tối đa -> 500 ký tự
+        - order_date: datetime -> tại thời điểm đơn hàng
+        - Danh sách sản phẩm: 
+            + sản phẩm 1 x số lượng x giá thời điểm mua
+            + sản phẩm 2 x số lượng x giá tại thời điểm mua
+            ...
+        h.1> Bảng Order   
+            - id: int -> khoá chính tự tăng
+            - fullname: string
+            - email: string (varchar) - 150 ký tự
+            - phone_number: string (varchar) -> 20 ký tự
+            - address: string -> 200 ký tự
+            - note: string (varchar) -> độ dài tối đa -> 500 ký tự
+            - order_date: datetime -> tại thời điểm đơn hàng
+            - status: int -> (pending, approved, ...)
+            - total_money: int -> Tổng tiền của đơn hàng
+        h.2> Bảng chi tiết đơn hàng
+            - id: int -> khoá chính tự tăng
+            - order_id -> int -> foreign key -> order (id)
+            - product_id -> int -> foreign key -> product (id)
+            - num: int -> số lượng sản phẩm mua
+            - total_money -> lưu tổng tiền của sản phẩm (price * num)
+
+
+
+3) Triển khai dự án
+
+Yêu cầu:
+Công nghệ sử dụng
+    Frontend: 
+        - HTML/CSS/SCSS/JS
+        - Bootstrap 4/JQuery
+    Backend:
+        - PHP/MySQL
+        - Laravel
+
+Chức năng nổi bật:
