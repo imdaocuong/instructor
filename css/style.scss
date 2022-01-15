@@ -37,13 +37,26 @@ html {
     outline: none;
 }
 
+// tự động chia layout: nhập chiều rộng nhỏ nhất = $val
 @mixin grid($val){
     display: grid;
     display: -ms-grid;
     grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
     gap: 1.5rem;
 }
+ 
+// hiệu ứng boxshadow chung
+@mixin box_Shadow(){
+    box-shadow: 20px 20px 35px #d0d0d0, -20px -20px 35px #ffffff;
+}
 
+// cho phần tử vào giữa ô
+@mixin element_middle(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 // NAVBAR CSS STARTS HERE
 .navbar_main{
     position: relative;
