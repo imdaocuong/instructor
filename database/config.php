@@ -3,6 +3,7 @@
     // define('DATABASE', 'instructor');
     // define('USERNAME', 'root'); //nhớ sửa lại khi public lên hệ thống
     // define('PASSWORD', '');
+    define('SITEURL', 'http://localhost:9090/e-Project/instructor/admin/');
     
     class config{
         private const SERVERNAME = '127.0.0.1:3306';

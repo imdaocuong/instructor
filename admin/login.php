@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <script src="https://kit.fontawesome.com/64d58efce2.js"></script>
-    <link rel="stylesheet" href="./css/admin.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
 
@@ -19,18 +19,18 @@
         if(isset($_POST['loginadmin'])){
             // 1. get data from login form: username and password
             $username = htmlspecialchars(trim($_POST['username']));
-            $password = htmlspecialchars(trim($_POST['password']));
+            $password = md5(htmlspecialchars(trim($_POST['password'])));
 
-            // 2. SQL check username and password có tồn tại
+            // 2. check username and password có tồn tại
             if(empty($password)){
-                $erros['password'] = "Mật khẩu không được để trống";
+                $erros['password'] = "*Mật khẩu không được để trống";
             }
             if(empty($username)){
-                $erros['username'] = "Tài khoản không được để trống";
+                $erros['username'] = "*Tài khoản không được để trống";
             }
             if(count($erros) == 0){
                 $conn = config::getConnection();
-                $sql = "select username, password from admin where username='$username' and password='$password'";
+                $sql = "select fullname ,username,password from admin where username='$username' and password='$password'";
                 //  3. Execute the query
                 $res = mysqli_query($conn, $sql);
 
@@ -41,12 +41,16 @@
                     // user available and login success
                     $_SESSION['username'] = $username; // to check whether the user is logged in or not and logout will unset it
                     // redirect to home page/dashboard
+                    $_SESSION['login'] = "Đăng nhập thành công";
                     header('Location: index.php');
-                    
                 }else{
                     // user not exists
-                    $erros['login'] = "<div style='color:red';> Tài khoản hoặc mật khẩu không đúng</div>";
+                    $erros['login'] = "*Tài khoản hoặc mật khẩu không đúng";
                 }
+                
+                // 5 close
+                mysqli_close($conn);
+                unset($conn);
             }
         }
     ?>
@@ -54,12 +58,21 @@
         <div class="forms-container">
             <div class="signin-signup">
                 
-                  <!-- form đăng nhập  -->
+                <!-- form đăng nhập  -->
                 <form method="post" class="sign-in-form">
                     <?php
-                        echo "<div style='color: red; font-weight: bold; margin: 0px 0px 0px 10px; font-size: 12px; padding: 5px 0px'>";
+                        echo "<div style='color: red; font-weight: bold; font-size: 14px'>";
                         if(isset($erros['login'])){
                             echo $erros['login'];
+                            unset($erros['login']);
+                        } 
+                        echo "</div>";
+                    ?>
+                    <?php
+                        echo "<div style='color: red; font-weight: bold; font-size: 14px'>";
+                        if(isset($_SESSION['no_login_message'])){
+                            echo $_SESSION['no_login_message'];
+                            unset($_SESSION['no_login_message']);
                         } 
                         echo "</div>";
                     ?>
@@ -67,25 +80,25 @@
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" name="username" id="username" placeholder="Username" value="<?php echo (!empty($username)?$username:""); ?>" />
-                        <?php 
-                            echo "<div style='color: red; font-weight: bold; margin: 0px 0px 0px 10px; font-size: 12px; padding: 5px 0px'>";
-                                if(isset($erros['username'])){
-                                    echo $erros['username'];
-                                } 
-                            echo "</div>";
-                        ?>
                     </div>
+                    <?php 
+                        echo "<div style='color: red; font-weight: bold; font-size: 14px;'>";
+                            if(isset($erros['username'])){
+                                echo $erros['username'];
+                            } 
+                        echo "</div>";
+                    ?>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" name="password" placeholder="Password" value="<?php echo (!empty($password)?$password:""); ?>"/>
-                        <?php 
-                            echo "<div style='color: red; font-weight: bold; margin: 0px 0px 0px 10px; font-size: 12px; padding: 5px 0px'>";
-                                if(isset($erros['password'])){
-                                    echo $erros['password'];
-                                } 
-                            echo "</div>";
-                        ?>
                     </div>
+                    <?php 
+                        echo "<div style='color: red; font-weight: bold; font-size: 14px;'>";
+                            if(isset($erros['password'])){
+                                echo $erros['password'];
+                            } 
+                        echo "</div>";
+                    ?>
                     <button type="submit" name="loginadmin" class="btn solid">Đăng nhập</button>
                 </form>
             </div>

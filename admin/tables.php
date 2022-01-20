@@ -33,13 +33,12 @@
             <!-- Main Content -->
             <div id="content">
                 <?php include('partials/navbar.php'); ?>
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -531,13 +530,14 @@
                 <!-- /.container-fluid -->
 
 
-                <?php include('partials/footer.php') ;?>
             </div>
+            <?php include('partials/footer.php') ;?>
             <!-- End of Main Content -->
         </div>
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
+    <?php include('partials/message_logout.php');?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -559,7 +559,12 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
-
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.nav_tables').addClass('active');
+            $('.nav_dashboard').removeClass('active');
+        });
+    </script>
 </body>
 
 </html>

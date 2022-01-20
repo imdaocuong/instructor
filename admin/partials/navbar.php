@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>navbar-dashboard</title>
 </head>
 <body>
     <!-- Topbar -->
@@ -31,7 +27,6 @@
 
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
-
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
                 <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -210,16 +205,6 @@
 
     </nav>
     <!-- End of Topbar -->
-
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-        </div>
-    </div>
-    <!-- /.container-fluid -->
 
 </body>
 </html>

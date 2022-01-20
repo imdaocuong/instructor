@@ -9,8 +9,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>Charts</title>
     <!-- Custom fonts for this template-->
@@ -21,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet">
 
 </head>
 
@@ -96,15 +95,15 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <?php include('partials/footer.php') ;?>
-
+                
             </div>
+            <?php include('partials/footer.php') ;?>
             <!-- End of Main Content -->
         </div>
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
-
+    <?php include('partials/message_logout.php');?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -123,6 +122,12 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.nav_chars').addClass('active');
+            $('.nav_dashboard').removeClass('active');
+        });
+    </script>
 
 </body>
 

@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>menu-dashboard</title>
 </head>
 <body>
     <!-- Sidebar -->
@@ -21,7 +17,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item active nav_dashboard">
             <a class="nav-link" href="./index.php">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
@@ -45,8 +41,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="">Buttons</a>
-                    <a class="collapse-item" href="">Cards</a>
+                    <a class="collapse-item cards_active" href="../admin/cards.php">Cards</a>
                 </div>
             </div>
         </li>
@@ -65,6 +60,7 @@
                     <a class="collapse-item" href="">Colors</a>
                     <a class="collapse-item" href="">Borders</a>
                     <a class="collapse-item" href="">Animations</a>
+                    <a class="collapse-item nav_manage_admin" href="../admin/manage_admin.php">Manage Admins</a>
                     <a class="collapse-item" href="">Other</a>
                 </div>
             </div>
@@ -93,22 +89,22 @@
                     <a class="collapse-item" href="">Forgot Password</a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.php">404 Page</a>
+                    <a class="collapse-item" href="../admin/404errors.php">404 Page</a>
                     <a class="collapse-item" href="">Blank Page</a>
                 </div>
             </div>
         </li>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item">
+        <li class="nav-item nav_chars">
             <a class="nav-link" href="../admin/charts.php">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Charts</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="../admin/tables.php">
+        <li class="nav-item nav_tables">
+            <a  class="nav-link" href="../admin/tables.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Tables</span></a>
         </li>
@@ -123,6 +119,6 @@
 
     </ul>
     <!-- End of Sidebar -->
-
+    
 </body>
 </html>
