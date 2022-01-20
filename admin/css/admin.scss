@@ -43,115 +43,6 @@ body {
     background-color: $white;
 }
 
-.container_navbar{
-    position: relative;
-    width: 100%;
-
-    .navigation {
-        position: fixed;
-        width: 300px;
-        height: 100%;
-        background-color: $background_color;
-        border-left: 10px solid $background_color;
-        transition: 0.5s;
-        overflow: hidden;
-
-        ul {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            
-            li {
-                position: relative;
-                width: 100%;
-                list-style: none;
-                border-top-left-radius: 30px;
-                border-bottom-left-radius: 30px;
-                &:hover,
-                &.hovered {
-                    background-color: $white;
-
-                    a {
-                        color: $background_color;
-                    }
-                }
-                &:nth-child(1) {
-                    margin-bottom: 40px;
-                    margin-left: 30px;
-                    pointer-events: none;
-                    font-size: 25px;
-                }
-                a {
-                    position: relative;
-                    display: block;
-                    width: 100%;
-                    display: flex;
-                    color: $white;
-                    font-weight: 600;
-                    transition: 0.5s linear;
-
-                    .icon {
-                        position: relative;
-                        display: block;
-                        min-width: 50px;
-                        height: 60px;
-                        line-height: 75px;
-                        text-align: center;
-
-                        ion-icon {
-                            font-size: 1.75em;
-                        }
-                    }
-                    .title {
-                        position: relative;
-                        display: block;
-                        padding: 0 10px;
-                        height: 60px;
-                        line-height: 60px;
-                        text-align: start;
-                        white-space: nowrap;
-                    }
-                }
-                &.active{
-                    background-color: $white;
-                    transition: 0.5s linear;
-
-                    a {
-                        color: $background_color;
-                    }
-                }
-            }
-            li:hover a::before,
-            li.hovered a::before {
-                content: "";
-                position: absolute;
-                right: 0;
-                top: -50px;
-                width: 50px;
-                height: 50px;
-                background: transparent;
-                border-radius: 50%;
-                box-shadow: 35px 35px 0 10px $white;
-                pointer-events: none;
-            }
-            li:hover a::after,
-            li.hovered a::after {
-                content: "";
-                position: absolute;
-                right: 0;
-                bottom: -50px;
-                width: 50px;
-                height: 50px;
-                background: transparent;
-                border-radius: 50%;
-                box-shadow: 35px -35px 0 10px $white;
-                pointer-events: none;
-            }
-        }
-    }
-}
-
 
 // code login admin starts here !!!!!
 .admin_container{
@@ -186,30 +77,40 @@ body {
                 flex-direction: column;
                 padding: 0rem 5rem;
                 transition: all 0.2s 0.7s;
-                overflow: hidden;
                 grid-column: 1 / 2;
+                overflow: hidden;
                 grid-row: 1 / 2;
 
-                &.sign-in-form{
+                &.sign-in-form {
                     z-index: 2;
                 }
 
                 .title{
                     font-size: 2.2rem;
                     color: #444;
-                    margin-bottom: 10px;
                 }
                 .input-field{
-                    max-width: 400px;
+                    max-width: 380px;
                     width: 100%;
-                    background-color: #fff;
-                    margin: 10px 0;
+                    background-color: $light_bg;
+                    margin: 20px 0;
                     height: 55px;
+                    display: grid;
                     border-radius: 50px;
-                    position: relative;
+                    grid-template-columns: 15% 85%;
+                    padding: 0 0.4rem;
+                    position: relative;    
+                    border: 1px solid $text_color;
+
+                    i {
+                        text-align: center;
+                        line-height: 55px;
+                        color: #acacac;
+                        transition: 0.5s;
+                        font-size: 1.1rem;
+                    }
 
                     input{
-                        width: 100%;
                         background: none;
                         outline: none;
                         border: none;
@@ -217,9 +118,6 @@ body {
                         font-weight: 600;
                         font-size: 1.1rem;
                         color: #333;
-                        padding: 15px 20px;
-                        border-radius: 50px;
-                        @include box_Shadow;
 
                         &::placeholder{
                             color: #aaa;
@@ -233,8 +131,8 @@ body {
                     border: none;
                     outline: none;
                     height: 49px;
-                    border-radius: 50px;
-                    color: #fff;
+                    border-radius: 45px;
+                    color: $footer_color;
                     text-transform: uppercase;
                     font-weight: 600;
                     margin: 15px 0;
@@ -244,6 +142,7 @@ body {
                     
                     &:hover{
                         background-color: #4d84e2;
+                        color: $light_bg;
                     }
                 }
             }
@@ -363,6 +262,41 @@ body {
         
     }
 }
+// CLICK_SCROLL_TOP STARTS HERE
+.scrollTop{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    z-index: 10000;
+    font-size: 15px;
+    padding: 12px;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    visibility: hidden;
+    transition: 0.3s linear;
+
+    
+    &:hover{
+        background-color: $background_color;
+        color: $footer_color;
+    }
+    &.active{
+        visibility: visible;
+        opacity: 1;
+    }
+    i{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+}
+// CLICK_SCROLL_TOP ENDS HERE
 @media (max-width: 570px){
     .admin_container{
         padding: 1.5rem;
@@ -386,7 +320,6 @@ body {
                     }
                 }
             }
-            
         }
         .panels-container{
             .panel{

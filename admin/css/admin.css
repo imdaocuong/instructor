@@ -33,12 +33,12 @@ body {
   background-color: #fff;
 }
 
-.container_navbar {
+.container_menu {
   position: relative;
   width: 100%;
 }
 
-.container_navbar .navigation {
+.container_menu .menu {
   position: fixed;
   width: 300px;
   height: 100%;
@@ -47,16 +47,17 @@ body {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   overflow: hidden;
+  top: 0%;
 }
 
-.container_navbar .navigation ul {
+.container_menu .menu ul {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
 
-.container_navbar .navigation ul li {
+.container_menu .menu ul li {
   position: relative;
   width: 100%;
   list-style: none;
@@ -64,22 +65,22 @@ body {
   border-bottom-left-radius: 30px;
 }
 
-.container_navbar .navigation ul li:hover, .container_navbar .navigation ul li.hovered {
+.container_menu .menu ul li:hover, .container_menu .menu ul li.hovered {
   background-color: #fff;
 }
 
-.container_navbar .navigation ul li:hover a, .container_navbar .navigation ul li.hovered a {
+.container_menu .menu ul li:hover a, .container_menu .menu ul li.hovered a {
   color: #fccf33;
 }
 
-.container_navbar .navigation ul li:nth-child(1) {
+.container_menu .menu ul li:nth-child(1) {
   margin-bottom: 40px;
   margin-left: 30px;
   pointer-events: none;
   font-size: 25px;
 }
 
-.container_navbar .navigation ul li a {
+.container_menu .menu ul li a {
   position: relative;
   display: block;
   width: 100%;
@@ -92,7 +93,7 @@ body {
   transition: 0.5s linear;
 }
 
-.container_navbar .navigation ul li a .icon {
+.container_menu .menu ul li a .icon {
   position: relative;
   display: block;
   min-width: 50px;
@@ -101,11 +102,11 @@ body {
   text-align: center;
 }
 
-.container_navbar .navigation ul li a .icon ion-icon {
+.container_menu .menu ul li a .icon ion-icon {
   font-size: 1.75em;
 }
 
-.container_navbar .navigation ul li a .title {
+.container_menu .menu ul li a .title {
   position: relative;
   display: block;
   padding: 0 10px;
@@ -115,18 +116,18 @@ body {
   white-space: nowrap;
 }
 
-.container_navbar .navigation ul li.active {
+.container_menu .menu ul li.active {
   background-color: #fff;
   -webkit-transition: 0.5s linear;
   transition: 0.5s linear;
 }
 
-.container_navbar .navigation ul li.active a {
+.container_menu .menu ul li.active a {
   color: #fccf33;
 }
 
-.container_navbar .navigation ul li:hover a::before,
-.container_navbar .navigation ul li.hovered a::before {
+.container_menu .menu ul li:hover a::before,
+.container_menu .menu ul li.hovered a::before {
   content: "";
   position: absolute;
   right: 0;
@@ -140,8 +141,8 @@ body {
   pointer-events: none;
 }
 
-.container_navbar .navigation ul li:hover a::after,
-.container_navbar .navigation ul li.hovered a::after {
+.container_menu .menu ul li:hover a::after,
+.container_menu .menu ul li.hovered a::after {
   content: "";
   position: absolute;
   right: 0;
@@ -153,6 +154,49 @@ body {
   -webkit-box-shadow: 35px -35px 0 10px #fff;
           box-shadow: 35px -35px 0 10px #fff;
   pointer-events: none;
+}
+
+.container_navbar {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.container_navbar .navigation {
+  width: calc(100% - 300px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid #130f40;
+  border-left: none;
+  border-right: none;
+  padding: 20px 10px;
+  background-color: #231f20;
+  -webkit-box-shadow: 20px 20px 35px #d0d0d0, -20px -20px 35px #ffffff;
+          box-shadow: 20px 20px 35px #d0d0d0, -20px -20px 35px #ffffff;
+}
+
+.container_navbar .navigation ul li {
+  list-style: none;
+}
+
+.container_navbar .navigation li .logout {
+  color: #fff;
+}
+
+.container_navbar .navigation li .logout:hover {
+  color: #fccf33;
 }
 
 .admin_container {
@@ -204,10 +248,10 @@ body {
   padding: 0rem 5rem;
   -webkit-transition: all 0.2s 0.7s;
   transition: all 0.2s 0.7s;
-  overflow: hidden;
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   grid-column: 1 / 2;
+  overflow: hidden;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1 / 2;
@@ -220,21 +264,34 @@ body {
 .admin_container .forms-container .signin-signup form .title {
   font-size: 2.2rem;
   color: #444;
-  margin-bottom: 10px;
 }
 
 .admin_container .forms-container .signin-signup form .input-field {
-  max-width: 400px;
+  max-width: 380px;
   width: 100%;
-  background-color: #fff;
-  margin: 10px 0;
+  background-color: #f7f7f7;
+  margin: 20px 0;
   height: 55px;
+  display: -ms-grid;
+  display: grid;
   border-radius: 50px;
+  -ms-grid-columns: 15% 85%;
+      grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
   position: relative;
+  border: 1px solid #979797;
+}
+
+.admin_container .forms-container .signin-signup form .input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  font-size: 1.1rem;
 }
 
 .admin_container .forms-container .signin-signup form .input-field input {
-  width: 100%;
   background: none;
   outline: none;
   border: none;
@@ -242,10 +299,6 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
-  padding: 15px 20px;
-  border-radius: 50px;
-  -webkit-box-shadow: 20px 20px 35px #d0d0d0, -20px -20px 35px #ffffff;
-          box-shadow: 20px 20px 35px #d0d0d0, -20px -20px 35px #ffffff;
 }
 
 .admin_container .forms-container .signin-signup form .input-field input::-webkit-input-placeholder {
@@ -274,8 +327,8 @@ body {
   border: none;
   outline: none;
   height: 49px;
-  border-radius: 50px;
-  color: #fff;
+  border-radius: 45px;
+  color: #231f20;
   text-transform: uppercase;
   font-weight: 600;
   margin: 15px 0;
@@ -286,6 +339,7 @@ body {
 
 .admin_container .forms-container .signin-signup form .btn:hover {
   background-color: #4d84e2;
+  color: #f7f7f7;
 }
 
 .admin_container .panels-container {
