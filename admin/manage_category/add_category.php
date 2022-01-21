@@ -1,7 +1,8 @@
 <?php
-    include('../database/config.php');
-    include('./partials/login_check.php');
+    include('../../database/config.php');
+    include('../partials/login_check.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,76 +12,27 @@
         <title>Add-admin</title>
 
         <!-- Custom fonts for this template-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="./css/sb-admin-2.min.css" rel="stylesheet">
-        <link href="css/admin.css" rel="stylesheet">
+        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../css/admin.css" rel="stylesheet">
 
     </head>
     <body id="page-top">
-    <?php
-            $erros = [];
-            $result = [];
-            // lấy value tử form và lưu vào database
-            // kiểm tra nút submit đã được click?
-            if(isset($_POST['submit'])){
-                // 1. lấy giữ liệu từ form
-                $fullname = htmlspecialchars(trim($_POST['fullname']));
-                $username = htmlspecialchars(trim($_POST['username']));
-                $password = htmlspecialchars(trim($_POST['password']));
-                $re_password = htmlspecialchars(trim($_POST['re_password']));
-                // 2. chek dữ liệu
-                if(empty($fullname)){
-                    $erros['fullname'] = "*Tên người dùng không được để trống";
-                }
-                if(empty($username)){
-                    $erros['username'] = "*Tài khoản không được để trống";
-                }  
-                if(empty($password)){
-                    $erros['password'] = "*Mật khẩu không được để trống";
-                }
-                if($password !== $re_password){
-                    $erros['re_password'] = "*Mật khẩu nhập lại không đúng";
-                }
-                // 2. Gửi lên sql
-                if(count($erros) == 0){
-                    $conn = config::getConnection();
-                    $sql = "insert into admin set 
-                                fullname='$fullname', 
-                                username='$username', 
-                                password='".md5($password)."'
-                            ";
-
-                    //  3. Execute the query
-                    $res = mysqli_query($conn,$sql);
-                    if($res == true){
-                        // Data inserted
-                        $_SESSION['add_admin'] = "Tạo tài khoản thành công";
-                        header('location: manage_admin.php');
-                        
-                    } else {
-                        $erros['resdes'] = "Tạo tài khoản thất bại";
-                    }
-                    // 4 close
-                    mysqli_close($conn);
-                    unset($conn);
-                } 
-            }
-        ?>
-        <?php include('partials/message_login.php');?>
+        <?php include('../partials/message_login.php');?>
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include('partials/menu.php');?>
+            <?php include('../partials/menu.php');?>
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
                 <div id="content">
-                    <?php include('partials/navbar.php'); ?>
+                    <?php include('../partials/navbar.php'); ?>
 
                     <!-- code database bắt đầu từ đây  -->
                     <div class="container-fluid d-flex justify-content-center">
@@ -90,6 +42,12 @@
                                     echo "<div class='alert alert-danger text-danger'>";
                                         echo $erros['resdes'];
                                         unset($erros['resdes']);
+                                    echo "</div>";
+                                }
+                                if(isset($erros['exists'])){
+                                    echo "<div class='alert alert-danger text-danger'>";
+                                        echo $erros['exists'];
+                                        unset($erros['exists']);
                                     echo "</div>";
                                 }
                             ?>
@@ -140,7 +98,7 @@
                             </div>
                             <div class="form-group d-flex justify-content-end">
                                 <button  type="submit" name="submit" class="btn btn-primary mx-2">Add admin</button>
-                                <a href="./manage_admin.php" class="btn btn-secondary">Go back</a>
+                                <a href="<?php echo SITEURL; ?>admin/manage_admin/manage_admin.php" class="btn btn-secondary">Go back</a>
                                 </div>
                         </form>
                     </div>
@@ -148,30 +106,30 @@
                         
                     </div>
                     <!-- End of Main Content -->
-                    <?php include('partials/footer.php') ;?>
+                    <?php include('../partials/footer.php') ;?>
                 </div>
                 <!-- End of Content Wrapper -->
             </div>
             <!-- End of Page Wrapper -->
             
-        <?php include('partials/message_logout.php');?>
+        <?php include('../partials/message_logout.php');?>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+        <script src="../js/sb-admin-2.min.js"></script>
         <!-- Page level plugins -->
-        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="../vendor/chart.js/Chart.min.js"></script>
         <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
+        <script src="../js/demo/chart-area-demo.js"></script>
+        <script src="../js/demo/chart-pie-demo.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function(){
-                $('.nav_manage_admin').addClass('active');
+                $('.nav_manage_category').addClass('active');
                 $('#collapseUtilities').addClass('show');
                 $('.nav_dashboard').removeClass('active');
             });

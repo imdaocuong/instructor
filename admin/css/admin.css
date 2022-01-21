@@ -157,12 +157,12 @@ body {
 
 .admin_container .forms-container .signin-signup form .btn {
   width: 150px;
-  background-color: #fccf33;
+  background-color: #4e73df;
   border: none;
   outline: none;
   height: 49px;
   border-radius: 45px;
-  color: #231f20;
+  color: #f7f7f7;
   text-transform: uppercase;
   font-weight: 600;
   margin: 15px 0;
@@ -172,8 +172,8 @@ body {
 }
 
 .admin_container .forms-container .signin-signup form .btn:hover {
-  background-color: #4d84e2;
-  color: #f7f7f7;
+  background-color: #fccf33;
+  color: #130f40;
 }
 
 .admin_container .panels-container {
@@ -248,9 +248,12 @@ body {
   right: 48%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #fccf33 0%, #4481eb 100%);
   -webkit-transition: 1.8s ease-in-out;
   transition: 1.8s ease-in-out;
+  background-color: #4e73df;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
+  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-size: cover;
   border-radius: 50%;
   z-index: 6;
 }
@@ -353,7 +356,7 @@ body {
 }
 
 .confirm_container .confirm_form {
-  bottom: 35%;
+  bottom: 10%;
   position: absolute;
   width: 420px;
   padding: 20px 10px;

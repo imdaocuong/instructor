@@ -2,6 +2,7 @@
     include('../database/config.php');
     include('./partials/login_check.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

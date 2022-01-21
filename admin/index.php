@@ -2,6 +2,7 @@
     include('../database/config.php');
     include('./partials/login_check.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,11 +34,11 @@
                 <div id="content">
                     <?php include('partials/navbar.php'); ?>
                     <?php include('partials/report.php'); ?>
+
                     <!-- code database bắt đầu từ đây  -->
                     <div class="container-fluid">
 
                     </div>
-                    
                     <!-- kết thúc code ở đây  -->
                         
                     </div>

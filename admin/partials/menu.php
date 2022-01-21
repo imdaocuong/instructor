@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./index.php">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo SITEURL;?>admin/index.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -18,7 +19,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active nav_dashboard">
-            <a class="nav-link" href="./index.php">
+            <a class="nav-link" href="<?php echo SITEURL;?>admin/index.php">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -41,7 +42,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item cards_active" href="../admin/cards.php">Cards</a>
+                    <a class="collapse-item cards_active" href="<?php echo SITEURL;?>admin/cards.php">Cards</a>
                 </div>
             </div>
         </li>
@@ -51,16 +52,16 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+                <span>Manage</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="">Colors</a>
+                    <h6 class="collapse-header">Custom Manage:</h6>
+                    <a class="collapse-item nav_manage_admin" href="<?php echo SITEURL;?>admin/manage_admin/manage_admin.php">Admin</a>
+                    <a class="collapse-item nav_manage_category" href="<?php echo SITEURL;?>admin/manage_category/manage_category.php">Category</a>
                     <a class="collapse-item" href="">Borders</a>
                     <a class="collapse-item" href="">Animations</a>
-                    <a class="collapse-item nav_manage_admin" href="../admin/manage_admin.php">Manage Admins</a>
                     <a class="collapse-item" href="">Other</a>
                 </div>
             </div>
@@ -89,7 +90,7 @@
                     <a class="collapse-item" href="">Forgot Password</a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="../admin/404errors.php">404 Page</a>
+                    <a class="collapse-item" href="<?php echo SITEURL;?>admin/partials/404errors.php">404 Page</a>
                     <a class="collapse-item" href="">Blank Page</a>
                 </div>
             </div>
@@ -97,14 +98,14 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item nav_chars">
-            <a class="nav-link" href="../admin/charts.php">
+            <a class="nav-link" href="<?php echo SITEURL;?>admin/charts.php">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Charts</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
         <li class="nav-item nav_tables">
-            <a  class="nav-link" href="../admin/tables.php">
+            <a  class="nav-link" href="<?php echo SITEURL;?>admin/tables.php">
                 <i class="fas fa-fw fa-table"></i>
                 <span>Tables</span></a>
         </li>

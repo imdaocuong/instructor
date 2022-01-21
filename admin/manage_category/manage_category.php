@@ -1,6 +1,6 @@
 <?php
-    include('../database/config.php');
-    include('./partials/login_check.php');
+    include('../../database/config.php');
+    include('../partials/login_check.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,43 +11,55 @@
         <title>Admin</title>
 
         <!-- Custom fonts for this template-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="./css/sb-admin-2.min.css" rel="stylesheet">
-        <link href="css/admin.css" rel="stylesheet">
+        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../css/admin.css" rel="stylesheet">
+        <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     </head>
     <body id="page-top">
-        <?php include('partials/message_login.php');?>
+        <?php include('../partials/message_login.php');?>
         <!-- Page Wrapper -->
         <div id="wrapper">
-            <?php include('partials/menu.php');?>
+            <?php include('../partials/menu.php');?>
 
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
                 <!-- Main Content -->
                 <div id="content">
-                    <?php include('partials/navbar.php'); ?>
+                    <?php include('../partials/navbar.php'); ?>
 
                     <!-- code database bắt đầu từ đây  -->
                     <div class="container-fluid">
                         <h1>Manage Admins</h1>
                         <!-- button to add admin  -->
-                        <a href="../admin/add_admin.php" class="btn btn-primary mb-3">Add admin</a>
+                        <a href="<?php echo SITEURL;?>admin/manage_category/add_category.php" class="btn btn-primary mb-3">Add category</a>
                         <?php
-                            if(isset($_SESSION['add_admin'])){
+                            if(isset($_SESSION['add_category'])){
                                 echo "<div class='alert alert-success'>";
-                                    echo $_SESSION['add_admin'];
-                                    unset($_SESSION['add_admin']);
+                                    echo $_SESSION['add_category'];
+                                    unset($_SESSION['add_category']);
+                                echo "</div>";
+                            }
+                            if(isset($_SESSION['delete'])){
+                                echo "<div class='alert alert-success'>";
+                                    echo $_SESSION['delete_category'];
+                                    unset($_SESSION['delete_category']);
+                                echo "</div>";
+                            }
+                            if(isset($_SESSION['update'])){
+                                echo "<div class='alert alert-success'>";
+                                    echo $_SESSION['update_category'];
+                                    unset($_SESSION['update_category']);
                                 echo "</div>";
                             }
                         ?>
-
-                        <table class="table table-striped table-hover shadow-lg rounded-top rounded-3">
+                        <table class="table table-striped table-hover table-bordered shadow-lg rounded-top rounded-3" id="dataTable" width="100%" cellspacing="0">
                             <thead class="thead-dark rounded-top rounded-3">
                                 <tr >
                                     <th>STT</th>
@@ -56,26 +68,34 @@
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
+                            <tfoot>
+                                <tr >
+                                    <th>STT</th>
+                                    <th>Full Name</th>
+                                    <th>Username</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </tfoot>
                             <?php
                                 // 1. kết nối
                                 $conn = config::getConnection();
                                 // 2. lấy giá trị từ database
-                                $sql = "select fullname,username from admin";
+                                $sql = "select id,fullname,username from admin";
                                 $res = mysqli_query($conn, $sql);
 
                                 // 3. check xem đã lấy đc giá trị hay chưa?
                                 if($res==true){
                                     // đếm số hàng dữ liệu đã lấy được trong database hay chưa?
                                     $count = mysqli_num_rows($res);
-
                                     // kiểm tra số hàng
                                     if($count > 0){
                                         // đã lấy được dữ liệu từ database
                                         // tạo vòng lặp để duyệt từng hàng
                                         $stt = 0;
-                                        while($rows=mysqli_fetch_assoc($res)){
+                                        while($rows = mysqli_fetch_assoc($res)){
                                             $stt++;
                                             // gán dữ liệu vào biến
+                                            $id = $rows['id'];
                                             $fullname = $rows['fullname'];
                                             $username = $rows['username'];
                                             // hiển thị dữ liệu ra bảng
@@ -86,8 +106,8 @@
                                                     <td><?php echo $fullname ?></td>
                                                     <td><?php echo $username ?></td>
                                                     <td>
-                                                        <a href="" class="btn btn-success">Update Admin</a>
-                                                        <a href="" class="btn btn-danger">Delete Admin</a>
+                                                        <a href="<?php echo SITEURL?>admin/manage_admin/update_admin.php?id=<?php echo $id?>" class="btn btn-success">Update Admin</a>
+                                                        <a  onclick="delete_admin()" class="btn btn-danger">Delete Admin</a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -97,6 +117,8 @@
                                         // ko có dữ liệu
                                     }
                                 }
+                                config::closeConnection($conn);
+                             
                             ?>
                         </table>
                     </div>
@@ -104,36 +126,48 @@
                         
                     </div>
                     <!-- End of Main Content -->
-                    <?php include('partials/footer.php') ;?>
+                    <?php include('../partials/footer.php') ;?>
                 </div>
                 <!-- End of Content Wrapper -->
             </div>
             <!-- End of Page Wrapper -->
             
-        <?php include('partials/message_logout.php');?>
+        <?php include('../partials/message_logout.php');?>
 
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+        <script src="../js/sb-admin-2.min.js"></script>
         <!-- Page level plugins -->
-        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="../vendor/chart.js/Chart.min.js"></script>
         <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
+        <script src="../js/demo/chart-area-demo.js"></script>
+        <script src="../js/demo/chart-pie-demo.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="../js/demo/datatables-demo.js"></script>
 
         <script type="text/javascript">
-        $(document).ready(function(){
-            $('.nav_manage_admin').addClass('active');
-            $('#collapseUtilities').addClass('show');
-            $('.nav_dashboard').removeClass('active');
-        });
-    </script>
-
-
+            $(document).ready(function(){
+                $('.nav_manage_category').addClass('active');
+                $('#collapseUtilities').addClass('show');
+                $('.nav_dashboard').removeClass('active');
+            });
+        </script>
+        <script  type="text/javascript">
+            function delete_admin(){
+                if(confirm("Bạn có chắc chắn muốn xoá bản ghi này?")){
+                    window.location.href="<?php echo SITEURL?>admin/manage_admin/delete_admin.php?id=<?php echo $id;?>";
+                }
+            };
+        </script>
     </body>
 
 </html>
